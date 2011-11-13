@@ -166,14 +166,14 @@ header {
 *******************/
 #banner-wrap {
 	clear: both;
-	background: url(../images/BannerBg.jpg);
+	background: url(../images/bannerBg.jpg);
 	padding-bottom: 15px;
 	border-bottom: 1px solid #bba67b;
 	padding-top: 45px;
 }
 
 	#banner {
-		background: url(../images/BannerInnerBg.jpg);	
+		background: url(../images/bannerInnerBg.jpg);	
 		width: 960px;
 		color: white;
 		position: relative;	
