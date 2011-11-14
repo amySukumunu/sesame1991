@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-		
+	before_filter :correct_user, :only => [:show]
+   	before_filter :authenticate, :except => [:new, :create]
+   			
 	def new
   		@title = "Sign Up"
   		@user= User.new
@@ -27,6 +29,16 @@ class UsersController < ApplicationController
 
 	end
 	
+	private 
+  		
+  		def correct_user
+  			@user =User.find(params[:id])
+  			 unless current_user?(@user)
+				flash[:error] = "Invalid user."
+				redirect_to root_path
+  			 
+  			 end
+   		end
 
 	
 end

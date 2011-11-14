@@ -3,6 +3,9 @@
       <h1><%= @user.name %></h1>
       	  <%= @user.email %>
      </li>
+     <li><%= link_to "Post New Article", newpost_path%></li>
+
      
 </ul>
    
+<p><%= current_user.name %></p>

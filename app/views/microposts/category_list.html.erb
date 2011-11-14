@@ -1,0 +1,10 @@
+<h2>Catergory</h2>
+
+
+<% @microposts.each do |post|%>
+	<article>
+  		<h4><%= link_to post.title, post %>|		<%= post.created_at %></h4>
+	</article>
+<% end %>
+
+<%= will_paginate @microposts %>

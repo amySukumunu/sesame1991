@@ -1,0 +1,18 @@
+<%=  
+  		@category = Micropost.select("category").group("category")
+  		select_tag(:category,  
+   		options_from_collection_for_select(@category, :category, :category))  	%>
+   		
+   		
+user.show
+
+     <% unless @categoryList.nil? %>
+     <ul>
+     	<% @categoryList.each do |f|  %>
+     		<li>
+     			<%= link_to f.category, user_category_path(:id => @user.id, :category_id => f.id) %>     		</li>
+     		     
+     	<% end %>
+	  
+     </ul>
+     	<% end %>   		
