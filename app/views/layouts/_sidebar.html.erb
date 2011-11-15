@@ -1,5 +1,5 @@
 <h2>sidebar</h2>
-<% @categories= Micropost.select("category").group("category")%>
+<% @categories = Micropost.select("category").group("category").order("category")%>
 <% unless @categories.nil? %>
 
 <ul><% @categories.each do |category| %>

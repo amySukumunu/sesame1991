@@ -49,8 +49,8 @@ class MicropostsController < ApplicationController
   	end
   	
   	def category_list
-  		@micropost = Micropost.select("category").where(params[:category])
-  		@title = "Category"
+  		@microposts = Micropost.where('category = ?', params[:category])
+   		@title = "Category"
   		
   	end
 	
