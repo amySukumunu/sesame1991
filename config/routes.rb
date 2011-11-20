@@ -4,7 +4,9 @@ Sesame::Application.routes.draw do
 
 	end
 	resources :sessions
-	resources :microposts 
+	resources :microposts do 
+		resources :comments
+	end 
 		
 	root :to => 'pages#home'
   	match '/contact', 	:to => 'pages#contact'

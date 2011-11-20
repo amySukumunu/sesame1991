@@ -1,12 +1,20 @@
 <article>
-<h2><%= @micropost.title %></h2>
+	<h2><%= @micropost.title %></h2>
 
-<h6>
-	<%= @micropost.created_at.strftime("%d %b %y") %> |
-	<%= link_to "10 Comments",'#' %> |
-	<%= link_to "#{@micropost.category}",:controller => "microposts", :action => "category_list", :id => @micropost.category %></h6>
-<p><%= @micropost.content %></p>
-<%= render 'settings',:object => @micropost %>
+	<h6>
+		<%= @micropost.created_at.strftime("%d %b %y") %> |
+		<%= link_to "10 Comments",'#' %> |
+		<%= link_to "#{@micropost.category}",:controller => "microposts", :action => "category_list", :id => @micropost.category %></h6>
+	
+	<p><%= simple_format(@micropost.content) %></p>
+	
+	<h4>Comments</h4>
+		<%= render @micropost.comments.order("created_at DESC") %>
+ 
+	<h4>Add a comment:</h4>
+		<%= render "comments/form" %>
+
+	<%= render 'settings',:object => @micropost %>
 </article>
 
 

@@ -1,5 +1,6 @@
 class Micropost < ActiveRecord::Base
-	belongs_to :users	
+	belongs_to :users
+	has_many :comments	
 	
 	attr_accessible :title,:content,:category
 	
