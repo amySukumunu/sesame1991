@@ -1,10 +1,9 @@
 <h2>sidebar</h2>
-<% @categories = Micropost.select("category").group("category").order("category")%>
-<% unless @categories.nil? %>
-
-<ul><% @categories.each do |category| %>
-<li><%= link_to category.category, :controller =>"microposts", :category => category.category, :method => 'category_list' %></li>
-<% end %>
-</ul>
-
+<% @categories = Micropost.select('DISTINCT(category)').map(&:category).compact%>
+<% unless @categories.empty? %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= link_to category, :controller => "microposts", :action => "category_list", :id => category %></li>
+    <% end %>
+  </ul>
 <% end %>

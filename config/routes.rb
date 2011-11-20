@@ -4,7 +4,7 @@ Sesame::Application.routes.draw do
 
 	end
 	resources :sessions
-	resources :microposts
+	resources :microposts 
 		
 	root :to => 'pages#home'
   	match '/contact', 	:to => 'pages#contact'
@@ -14,5 +14,6 @@ Sesame::Application.routes.draw do
   	match '/signout',   :to => 'sessions#destroy'
     match '/blog',     	:to => 'microposts#index'
     match '/newpost',  	:to => 'microposts#new'
-    match '/microposts/:category', :to => 'microposts#category_list'
+    match 'microposts/category_list/:id' => 'microposts#category_list'    
+   
 end

@@ -4,8 +4,8 @@
 <% @microposts.each do |post|%>
 	<article>
   		<h3><%= link_to post.title, post %></h3>
-  		<h6><%= post.created_at %>|<%link_to "10 Comments", "#" %>
-  		| Category: <%= link_to post.category, "# "%></h6>
+  		<h6><%= post.created_at.strftime("%d %b %y") %>|<%= link_to "10 Comments", "#" %>
+  		| Category: <%= link_to post.category, :controller => "microposts", :action => "category_list", :id => post.category %></h6>
   		<%= raw(truncate(post.content, :length => 250, :omission => (link_to "...", post))) %>
 		<br/>
 		<%= render 'settings',:object => post %>

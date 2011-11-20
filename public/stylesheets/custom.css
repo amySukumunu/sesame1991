@@ -272,7 +272,7 @@ body #main {
 			font-weight: normal;
 		}
 		
-
+		
 		
 		body #main article h2 a:hover {
 			text-decoration: none;
@@ -288,6 +288,16 @@ body #main {
 			color:  #d6a75d;
 			font-style: italic;
 			font-size: 13px;
+		}
+		
+		body #main article table {
+			width: 100%;
+		}
+		
+		body #main article table td{
+			 
+			text-align:right;
+			padding:3px 7px 2px 7px;
 		}
 		
 	/* SIDEBAR */

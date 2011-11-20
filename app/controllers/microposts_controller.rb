@@ -3,11 +3,22 @@ class MicropostsController < ApplicationController
 	
 	def index
 		@title = "Blog"
-		@microposts = Micropost.paginate(:page => params[:page], :per_page => 3)
+		@microposts = Micropost.paginate(:order => 'microposts.created_at DESC',:page => params[:page], :per_page => 3)
 	end
 	
-	def show 
-		
+	def category_list
+  		@microposts = Micropost.order("created_at DESC").where('category = ?', params[:id])
+   		if @microposts.empty?
+   			flash[:error] = "Unknown category."
+   			@title = "Error"
+   			redirect_to root_path
+   		end	
+   		
+   		@title = "Category"
+  		
+  	end
+	
+	def show 	
 		@micropost = Micropost.find(params[:id])
 		@title = "Sesame #{@micropost.title}"
 	end
@@ -48,10 +59,6 @@ class MicropostsController < ApplicationController
   		end
   	end
   	
-  	def category_list
-  		@microposts = Micropost.where('category = ?', params[:category])
-   		@title = "Category"
-  		
-  	end
+  	
 	
 end
