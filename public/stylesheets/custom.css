@@ -300,6 +300,10 @@ body #main {
 			padding:3px 7px 2px 7px;
 		}
 		
+		body #main article #profile{
+			padding-left: 50px;
+		}
+		
 	/* SIDEBAR */
 	body #main #secondary section {
 		clear: both;
